@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /* --- Existing Cake & Microphone Code --- */
+  /* --- Cake and Microphone Candle Logic --- */
   const cake = document.querySelector(".cake");
   const candleCountDisplay = document.getElementById("candleCount");
-  let candles = [];
-  let audioContext;
-  let analyser;
-  let microphone;
   const audio = document.getElementById("birthdayMusic");
+  let candles = [];
+  let audioContext, analyser, microphone;
 
   function updateCandleCount() {
     const activeCandles = candles.filter(c => !c.classList.contains("out")).length;
@@ -39,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
-    let average = dataArray.reduce((sum, val) => sum + val, 0) / bufferLength;
+    const average = dataArray.reduce((sum, val) => sum + val, 0) / bufferLength;
     return average > 50;
   }
 
   function blowOutCandles() {
     let blownOut = 0;
-    if (candles.length > 0 && candles.some(c => !c.classList.contains("out"))) {
+    if (candles.some(c => !c.classList.contains("out"))) {
       if (isBlowing()) {
         candles.forEach(c => {
           if (!c.classList.contains("out") && Math.random() > 0.5) {
@@ -82,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function endlessConfetti() {
-    setInterval(function () {
+    setInterval(() => {
       confetti({
         particleCount: 100,
         spread: 70,
@@ -91,39 +89,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   }
 
-  /* --- New Envelope, Chibi Bounce, Hearts, and Sound --- */
+  /* --- Envelope Animation & Hearts --- */
   const envelope = document.getElementById("envelope");
   const chibi = document.querySelector(".chibi");
   const envelopeSound = document.getElementById("envelopeSound");
   const heartsContainer = document.getElementById("heartsContainer");
 
   envelope.addEventListener("click", function () {
-    envelope.classList.toggle("open");
+    const isOpen = envelope.classList.toggle("open");
 
-    // Toggle chibi bounce when envelope is open
-    if (envelope.classList.contains("open")) {
+    if (isOpen) {
       chibi.classList.add("bounce");
-      // Play envelope sound
       envelopeSound.play();
-      // Generate floating hearts
-      spawnHearts(5);
+      spawnHearts(7);
     } else {
       chibi.classList.remove("bounce");
     }
   });
 
-  // Function to spawn a number of hearts
   function spawnHearts(count) {
     for (let i = 0; i < count; i++) {
       const heart = document.createElement("div");
       heart.className = "heart-float";
-      heart.style.left = Math.random() * 80 + "px";
+      heart.style.left = Math.random() * 100 + "%";
       heart.textContent = "♥";
       heartsContainer.appendChild(heart);
-      // Remove the heart after its animation (2 seconds)
-      setTimeout(() => {
-        heart.remove();
-      }, 2000);
+      setTimeout(() => heart.remove(), 2000);
     }
   }
 });

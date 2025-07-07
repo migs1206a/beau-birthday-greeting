@@ -1,10 +1,19 @@
-/* Updated CSS for envelope behavior */
+/* General Reset & Body */
 body {
   background-color: #ffe5ec;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Greeting Banner */
 .candle-count-display {
   margin-top: 120px;
   font-size: 30px;
@@ -18,6 +27,7 @@ body {
   display: inline-block;
 }
 
+/* Chibi Image */
 .chibi {
   width: 120px;
   position: absolute;
@@ -25,6 +35,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
+  transition: transform 0.3s ease;
 }
 
 .bounce {
@@ -37,6 +48,7 @@ body {
   60% { transform: translateX(-50%) translateY(-10px); }
 }
 
+/* Cake */
 .cake {
   position: absolute;
   width: 250px;
@@ -93,6 +105,7 @@ body {
   z-index: 1;
 }
 
+/* Icing Drips */
 .drip {
   width: 50px;
   height: 60px;
@@ -106,6 +119,7 @@ body {
 .drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
 .drip3 { top: 54px; left: 90px; width: 80px; }
 
+/* Candles */
 .candle {
   background-color: #7B020B;
   width: 12px;
@@ -131,6 +145,7 @@ body {
   display: none;
 }
 
+/* Flame Animation */
 .flame {
   position: absolute;
   background-color: orange;
@@ -153,6 +168,7 @@ body {
   100% { transform: skewX(5deg); opacity: 1; }
 }
 
+/* Envelope */
 .envelope-container {
   position: absolute;
   top: calc(50% + 250px);
@@ -186,6 +202,7 @@ body {
   clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
+/* Hidden Letter */
 .letter {
   position: absolute;
   top: 0;
@@ -201,6 +218,8 @@ body {
   transition: transform 0.6s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   z-index: 2;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .envelope.open .flap {
@@ -211,8 +230,11 @@ body {
 .envelope.open .letter {
   transform: translateY(-120%);
   z-index: 4;
+  pointer-events: auto;
+  opacity: 1;
 }
 
+/* Footer */
 .footer {
   position: fixed;
   bottom: 0;
@@ -221,4 +243,73 @@ body {
   color: #fb6f92;
   font-size: 14px;
   padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .candle-count-display {
+    font-size: 22px;
+    padding: 8px 16px;
+  }
+
+  .chibi {
+    width: 90px;
+    top: -100px;
+  }
+
+  .cake {
+    width: 200px;
+    height: 170px;
+    margin-left: -100px;
+  }
+
+  .layer, .icing {
+    width: 200px;
+    height: 80px;
+  }
+
+  .plate {
+    width: 220px;
+    height: 90px;
+  }
+
+  .envelope {
+    width: 120px;
+    height: 80px;
+  }
+
+  .letter {
+    font-size: 0.75em;
+    padding: 10px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cake {
+    width: 160px;
+    height: 140px;
+    margin-left: -80px;
+  }
+
+  .chibi {
+    width: 70px;
+    top: -90px;
+  }
+
+  .envelope {
+    width: 100px;
+    height: 70px;
+  }
+
+  .letter {
+    font-size: 0.7em;
+  }
+
+  .candle-count-display {
+    font-size: 18px;
+  }
 }
