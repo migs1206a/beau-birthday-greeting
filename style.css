@@ -115,9 +115,31 @@ html, body {
   border-bottom-right-radius: 25px;
 }
 
-.drip1 { top: 53px; left: 5px; transform: skewY(15deg); height: 48px; width: 40px; }
-.drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
-.drip3 { top: 54px; left: 90px; width: 80px; }
+.drip1 {
+  top: 53px;
+  left: 5%;
+  transform: skewY(15deg);
+  height: 48px;
+  width: 40px;
+}
+
+.drip2 {
+  top: 69px;
+  left: 75%;
+  transform: skewY(-15deg);
+  height: 50px;
+  width: 40px;
+}
+
+
+
+.drip3 {
+  top: 54px;
+  left: 36%;
+  width: 80px;
+  height: 60px;
+}
+
 
 /* Candles */
 .candle {
