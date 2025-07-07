@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Beau!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+<body>
+  <div class="candle-count-display">🎉 HAPPY BIRTHDAY, BEAU! 🎉</div>
+
+  <div class="cake">
+    <img src="chibi.png" alt="Chibi Beau" class="chibi" />
+    <div id="candleCount" style="display: none"></div>
+    <div class="plate"></div>
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="icing"></div>
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+  </div>
+
+  <!-- Envelope with message -->
+  <div class="envelope-container">
+    <div class="envelope" id="envelope">
+      <div class="flap" id="flap"></div>
+      <div class="letter" id="letter">
+        <p>Dear Beau,<br><br>
+          You are a light in so many lives.  
+          May your year be filled with magic, kindness, and sweet surprises.  
+          Happy Birthday, I love you always! 🎂💖<br><br>
+          — pretty boy 💌
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for floating hearts -->
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <div class="footer">
+    Made with 💕 for Beau
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="birthdayMusic" src="hbd.mp3" preload="auto"></audio>
+  <audio id="envelopeSound" src="envelope.mp3" preload="auto"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
